@@ -11,7 +11,7 @@ export class CategoriaService {
   baseUrl: String = environment.baseUrl;
   constructor(private http: HttpClient) { }
   findAll():Observable<Categoria[]>{
-    const url = `${this.baseUrl}/categorias`
+    const url = `${this.baseUrl}categorias`
     return this.http.get<Categoria[]>(url);
   }
 }
