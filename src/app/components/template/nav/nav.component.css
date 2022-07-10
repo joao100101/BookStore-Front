@@ -1,0 +1,21 @@
+
+.container{
+    background-color: rgba(33, 33, 34, 0.767);
+    color: white;
+    height: 85%;
+}
+
+.lista{
+    background-color: rgba(61, 58, 58, 0.918);
+    overflow: hidden;
+    height: 100%;
+    
+}
+
+i{
+    padding-right: .6rem;
+}
+*{
+    box-sizing: border-box;
+    overflow: hidden;
+}
