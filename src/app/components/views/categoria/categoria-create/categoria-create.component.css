@@ -1,0 +1,53 @@
+form{
+    background-color: rgba(61, 58, 58, 0.582);
+    border-radius: 1.2rem;
+    padding: 3rem;
+    text-align: center;
+    width: 70%;
+    margin: 2rem auto 0 auto;
+}
+
+h1{
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 3rem;
+}
+
+.form{
+    width: 100%;
+}
+
+.descricao{
+    min-height: 1.5rem;
+    max-height: 5rem;
+}
+
+.buttons {
+    width: 100%;
+    text-align: center;
+}
+
+button{
+    margin-right: .5rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+
+    width: 10rem;
+}
+
+.criar-categoria{
+    background-color: blue;
+
+}
+
+.criar-categoria:hover{
+    background-color: rgba(0, 0, 255, 0.700);
+}
+
+.cancelar{
+    background-color: blue;
+}
+
+.cancelar:hover{
+    background-color: rgba(0, 0, 255, 0.700);
+}

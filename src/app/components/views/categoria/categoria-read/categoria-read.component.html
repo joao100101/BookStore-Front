@@ -3,6 +3,7 @@
     <h1>CATEGORIAS</h1>
   </div>
   <button
+    (click)="gotToCategoriaCreate()"
     mat-raised-button
     color="primary"
     class="mat-elevation-z8 criar-categoria"
@@ -41,8 +42,10 @@
           <a href="#">
             <i class="material-icons actions">edit</i>
           </a>
-          <a href="#">
-            <i class="material-icons actions">delete</i>
+          <a (click)="deleteCategoria(row.id)">
+            <i id="{{ row.id }}" class="material-icons actions delete"
+              >delete</i
+            >
           </a>
         </td>
       </ng-container>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Categoria } from '../categoria.model';
 import { CategoriaService } from '../categoria.service';
 
@@ -12,7 +14,7 @@ export class CategoriaReadComponent implements OnInit {
   categorias: Categoria[] = []
 
   displayedColumns: string[] = ['id', 'nome', 'descricao', 'livros', 'acoes'];
-  constructor(private service: CategoriaService) { }
+  constructor(private dialog: MatDialog, private service: CategoriaService, private router: Router) { }
 
   ngOnInit(): void {
     this.findAll();
@@ -24,4 +26,12 @@ export class CategoriaReadComponent implements OnInit {
     })
   }
 
+  gotToCategoriaCreate(){
+    this.router.navigate(['categorias/create'])
+  }
+
+  deleteCategoria(id?: any){
+    console.log(id);
+   //this.dialog.open(CategoriaReadComponent, CategoriaDeleteComponent);
+  }
 }
