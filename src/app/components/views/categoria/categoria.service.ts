@@ -10,21 +10,30 @@ import { Categoria } from './categoria.model';
 })
 export class CategoriaService {
   baseUrl: String = environment.baseUrl;
-  
+
   constructor(private http: HttpClient, private _snack: MatSnackBar) { }
-  
-  
-  findAll():Observable<Categoria[]>{
+
+
+  findAll(): Observable<Categoria[]> {
     const url = `${this.baseUrl}categorias`
     return this.http.get<Categoria[]>(url);
   }
 
-  create(categoria: Categoria): Observable<Categoria>{
+  findById(id: String): Observable<Categoria> {
+    const url = `${this.baseUrl}categorias/${id}`
+    return this.http.get<Categoria>(url);
+  }
+
+  create(categoria: Categoria): Observable<Categoria> {
     const url = `${this.baseUrl}categorias`
     return this.http.post<Categoria>(url, categoria);
   }
 
-  mensagem(str: String): void{
+  delete(id: String): Observable<void> {
+    const url = `${this.baseUrl}categorias/${id}`
+    return this.http.delete<void>(url);
+  }
+  mensagem(str: String): void {
     this._snack.open(`${str}`, 'OK', {
       horizontalPosition: 'end',
       verticalPosition: 'top',

@@ -31,6 +31,7 @@
 .actions{
     color:white;
     margin-right: .5rem;
+    cursor: pointer;
 }
 
 .livros{
@@ -38,6 +39,8 @@
     margin-left: .5rem;
 }
 
-
+.dialogo{
+    border: solid 10 10 red;
+}
 
 
