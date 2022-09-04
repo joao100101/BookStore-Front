@@ -9,7 +9,14 @@ h1{
     letter-spacing: .1rem;
 }
 
-.confirma{
+
+button{
+    color: white;
     width: 12rem;
     margin: .8rem;
+    background-color: blue;
+}
+
+button:hover{
+    background-color: rgba(0, 0, 255, 0.7);
 }

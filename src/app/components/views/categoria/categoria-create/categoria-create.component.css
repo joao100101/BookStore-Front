@@ -51,3 +51,19 @@ button{
 .cancelar:hover{
     background-color: rgba(0, 0, 255, 0.700);
 }
+
+
+::ng-deep .mat-focused .mat-form-field-label {
+    /*Cor do label*/
+    color: white !important;
+   }
+  
+   ::ng-deep.mat-form-field-underline {
+    /*Mudar cor da linha*/
+    background-color: gray !important;
+  } 
+  
+  ::ng-deep.mat-form-field-ripple {
+    /*Muda cor da linha quando focar no input*/
+   background-color: cornflowerblue !important;
+  }

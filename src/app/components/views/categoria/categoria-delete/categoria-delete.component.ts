@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { mensagem } from 'src/app/app.component';
+import { Class } from 'src/app/components/snackTypes';
 import { CategoriaReadComponent } from '../categoria-read/categoria-read.component';
 import { Categoria } from '../categoria.model';
 import { CategoriaService } from '../categoria.service';
@@ -11,7 +14,7 @@ import { CategoriaService } from '../categoria.service';
 })
 export class CategoriaDeleteComponent implements OnInit {
 
-  constructor(private dialog: MatDialog, private service: CategoriaService) { }
+  constructor(private dialog: MatDialog, private service: CategoriaService, private snack: MatSnackBar) { }
 
   categoria: Categoria = {
     id: '',
@@ -35,7 +38,7 @@ export class CategoriaDeleteComponent implements OnInit {
     this.service.delete(CategoriaReadComponent.getId()).subscribe((resposta) =>{
       this.dialog.closeAll();
       window.location.reload();
-      this.service.mensagem("Categoria deletada com sucesso.");
+      mensagem("Categoria deletada com sucesso.", Class.OK, this.snack);
     });
   }
 

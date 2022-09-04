@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { DataSource } from '@angular/cdk/collections';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { CategoriaDeleteComponent } from '../categoria-delete/categoria-delete.component';
 import { Categoria } from '../categoria.model';
@@ -14,9 +17,16 @@ var ID = '';
 })
 
 
-export class CategoriaReadComponent implements OnInit {
+export class CategoriaReadComponent implements OnInit, AfterViewInit {
+  @ViewChild('paginator') paginator?: MatPaginator;
 
+  public pageSize = 5;
+  public currentPage = 0;
+  public totalSize = 0;
+  pageEvent?: PageEvent;
   categorias: Categoria[] = [];
+
+  dataSource?: any;
 
 
   displayedColumns: string[] = ['id', 'nome', 'descricao', 'livros', 'acoes'];
@@ -24,6 +34,37 @@ export class CategoriaReadComponent implements OnInit {
 
   ngOnInit(): void {
     this.findAll();
+    this.getArray();
+  }
+
+  ngAfterViewInit(): void {
+    this.dataSource = new MatTableDataSource(this.categorias);
+    this.dataSource.paginator = this.paginator;
+  }
+
+
+
+  public handlePage(e: any) {
+    this.currentPage = e.pageIndex;
+    this.pageSize = e.pageSize;
+    this.iterator();
+  }
+
+  private getArray() {
+    this.service.findAll().subscribe((response) => {
+      this.dataSource = new MatTableDataSource<Categoria>(response);
+      this.dataSource.paginator = this.paginator;
+      this.categorias = response;
+      this.totalSize = this.categorias.length;
+      this.iterator();
+    });
+  }
+
+  private iterator() {
+    const end = (this.currentPage + 1) * this.pageSize;
+    const start = this.currentPage * this.pageSize;
+    const part = this.categorias.slice(start, end);
+    this.dataSource = part;
   }
 
   findAll() {
@@ -31,6 +72,7 @@ export class CategoriaReadComponent implements OnInit {
       this.categorias = resposta;
     })
   }
+
 
   gotToCategoriaCreate(){
     this.router.navigate(['categorias/create'])

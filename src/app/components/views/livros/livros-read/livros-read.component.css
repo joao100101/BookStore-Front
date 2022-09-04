@@ -1,0 +1,73 @@
+.container {
+    width: 100%;
+}
+
+
+
+.bloco {
+    float: left;
+    position: relative;
+    width: 28%;
+    height: 18.75rem;
+    margin-left: 2%;
+    margin-right: 3%;
+    margin-top: 2%;
+    background-color: #666;
+    border-radius: 1rem;
+}
+
+.photo {
+    border-radius: 1rem 1rem 0 0;
+    background-image: url('https://img.freepik.com/psd-premium/maquete-realista-da-capa-do-livro_290333-63.jpg?w=2000');
+    background-size: cover;
+    width: 100%;
+    height: 70%;
+}
+
+.desc {
+    background-color: rgba(118, 179, 22, 0.575);
+    width: 100%;
+    height: 30%;
+    position: absolute;
+    bottom: 0;
+    color: white;
+    text-align: center;
+    border-radius: 0 0 1rem 1rem;
+}
+
+.desc h1 {
+    margin: 0;
+    font-weight: bold;
+}
+
+.desc p {
+    text-align: left;
+    font-size: .9rem;
+    margin: 0;
+    margin-left: .2rem;
+}
+
+.desc p b {
+    letter-spacing: .06rem;
+}
+
+#principe {
+    background-size: cover;
+}
+
+.icons {
+    color: white;
+    margin-left: .6rem;
+}
+
+.icons:hover {
+    color: rgb(212, 247, 241);
+}
+
+.bookmark:hover {
+    color: gold;
+}
+
+li {
+    list-style: none;
+}
