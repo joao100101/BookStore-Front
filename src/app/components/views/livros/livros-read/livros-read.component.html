@@ -28,15 +28,14 @@
     <ul>
         <li *ngFor="let book of livros">
             <div class="bloco">
-                <a href="#">
-                    <div class='principe' style="background-image: url('{{getImg(book)}}');" class="photo"></div>
-                </a>
+                <div class='principe' style="background-image: url('{{getImg(book)}}');" class="photo"></div>
                 <div class="desc">
                     <h1>{{book.titulo}}</h1>
                     <i matTooltip="Autor: {{book.autor}}" class="material-icons icons">people</i>
-                    <i matTooltip="Editar Livro" class="material-icons icons">edit</i>
+                    <i matTooltip="Editar Livro" class="material-icons icons" routerLink="update/{{book.id}}">edit</i>
                     <i matTooltip="Ler" class="material-icons icons">chrome_reader_mode</i>
-                    <i matTooltip="Remover Livro" class="material-icons icons delete">delete</i>
+                    <i matTooltip="Remover Livro" class="material-icons icons delete"
+                        (click)="delete(book.id)">delete</i>
                 </div>
             </div>
         </li>

@@ -1,5 +1,10 @@
 <form>
-    <h1>CRIANDO NOVO LIVRO</h1>
+    <h1>ATUALIZANDO LIVRO</h1>
+    <mat-form-field class="form">
+        <mat-label>ID</mat-label>
+        <input matInput [(ngModel)]="livro.id" type="text" name="id" style="color: gray;" autocomplete="off"
+            placeholder="Ex. Pequeno principe" readonly />
+    </mat-form-field>
     <mat-form-field class="form">
         <mat-label>Título</mat-label>
         <input matInput [(ngModel)]="livro.titulo" type="text" name="titulo" autocomplete="off"
@@ -23,8 +28,8 @@
 
     <div class="buttons">
         <button type="submit" matTooltip="Criar Livro" matTooltipPosition="below" mat-raised-button color="primary"
-            class="mat-elevation-z8 criar-livro" (click)="create()">
-            CRIAR
+            class="mat-elevation-z8 criar-livro" (click)="update()">
+            ATUALIZAR
         </button>
         <button matTooltip="Voltar" matTooltipPosition="below" mat-raised-button color="warn"
             class="mat-elevation-z8 cancelar" (click)="voltar()">
