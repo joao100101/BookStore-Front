@@ -21,4 +21,10 @@ export class LivroService {
     const url = `${this.baseUrl}livros/${id}`;
     return this.http.get<Livro>(url);
   }
+
+  create(livro: Livro, cat_id: String){
+    const url = `${this.baseUrl}livros?categoria=${cat_id}`
+    return this.http.post<Livro>(url, livro);
+
+  }
 }

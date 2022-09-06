@@ -1,18 +1,48 @@
-<div id="container" class="container">
+<mat-toolbar class="livros-toolbar">
+    <button mat-icon-button matTooltip="Opções" matTooltipPosition="right" [matMenuTriggerFor]="menu"
+        (click)="toggleMenu()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>Exibindo livros</span>
+    <span class="espacador-toolbar"></span>
+    <button mat-icon-button matTooltip="Pesquisar" matTooltipPosition="below">
+        <mat-icon>search</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Voltar" matTooltipPosition="below" routerLink="/categorias">
+        <mat-icon>navigate_before</mat-icon>
+    </button>
+</mat-toolbar>
+<div class="itens-menu-ver">
+    <mat-menu #menu="matMenu" class="matmenu">
+        <button mat-menu-item routerLink="add">
+            <mat-icon>add</mat-icon>
+            <span>Adicionar</span>
+        </button>
+    </mat-menu>
+</div>
+
+
+
+
+<div class="container" *ngIf="livros.length > 0">
     <ul>
         <li *ngFor="let book of livros">
             <div class="bloco">
                 <a href="#">
-                    <div id='principe' style="background-image: url('{{book.urlCapa}}');" class="photo"></div>
+                    <div class='principe' style="background-image: url('{{getImg(book)}}');" class="photo"></div>
                 </a>
                 <div class="desc">
                     <h1>{{book.titulo}}</h1>
-                    <i matTooltip="Autor: José da silva" class="material-icons icons">people</i>
-                    <i matTooltip="Editora: Abril" class="material-icons icons">edit</i>
+                    <i matTooltip="Autor: {{book.autor}}" class="material-icons icons">people</i>
+                    <i matTooltip="Editar Livro" class="material-icons icons">edit</i>
                     <i matTooltip="Ler" class="material-icons icons">chrome_reader_mode</i>
-                    <i matTooltip="Ler mais tarde" class="material-icons icons bookmark">bookmark</i>
+                    <i matTooltip="Remover Livro" class="material-icons icons delete">delete</i>
                 </div>
             </div>
         </li>
     </ul>
+</div>
+
+<div class="sem-livros" *ngIf="isCarregadoAndVazio()">
+    <h1>Essa categoria ainda não possui livros</h1>
 </div>

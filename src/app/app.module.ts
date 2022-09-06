@@ -23,6 +23,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatMenuModule } from '@angular/material/menu';
+
 
 
 
@@ -35,6 +37,7 @@ import { CategoriaCreateComponent } from './components/views/categoria/categoria
 import { CategoriaDeleteComponent } from './components/views/categoria/categoria-delete/categoria-delete.component';
 import { CategoriaUpdateComponent } from './components/views/categoria/categoria-update/categoria-update.component';
 import { LivrosReadComponent } from './components/views/livros/livros-read/livros-read.component';
+import { LivroCreateComponent } from './components/views/livros/livro-create/livro-create.component';
 
 
 
@@ -49,7 +52,8 @@ import { LivrosReadComponent } from './components/views/livros/livros-read/livro
     CategoriaCreateComponent,
     CategoriaDeleteComponent,
     CategoriaUpdateComponent,
-    LivrosReadComponent
+    LivrosReadComponent,
+    LivroCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +74,8 @@ import { LivrosReadComponent } from './components/views/livros/livros-read/livro
     MatDialogModule,
     MatTooltipModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

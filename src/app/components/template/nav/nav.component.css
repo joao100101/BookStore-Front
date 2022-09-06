@@ -7,6 +7,7 @@
 .lista{
     background-color: rgba(61, 58, 58, 0.918);
     height: 100%;
+    width: 10rem;
 }
 
 i{
@@ -15,4 +16,5 @@ i{
 *{
     box-sizing: border-box;
     overflow: hidden;
+    border: none;
 }

@@ -4,4 +4,4 @@ export interface Livro{
     urlCapa: String,
     autor: String,
     texto: String
-}
+} 

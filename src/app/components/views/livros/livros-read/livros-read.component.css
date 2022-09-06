@@ -1,8 +1,20 @@
-.container {
-    width: 100%;
+button {
+    border: none;
+    margin: .1rem;
 }
 
+li {
+    list-style: none;
+}
 
+.principe {
+    background-size: cover;
+}
+
+.container {
+    width: 100%;
+    margin-top: 3rem;
+}
 
 .bloco {
     float: left;
@@ -51,10 +63,6 @@
     letter-spacing: .06rem;
 }
 
-#principe {
-    background-size: cover;
-}
-
 .icons {
     color: white;
     margin-left: .6rem;
@@ -62,12 +70,34 @@
 
 .icons:hover {
     color: rgb(212, 247, 241);
+    cursor: pointer;
 }
 
-.bookmark:hover {
-    color: gold;
+.delete:hover {
+    color: rgb(173, 2, 2);
 }
 
-li {
-    list-style: none;
+.espacador-toolbar {
+    flex: 1 1 auto;
+}
+
+.livros-toolbar {
+    background-color: greenyellow;
+    border: none;
+}
+
+
+.itens-menu-ver{
+    overflow: hidden !important;
+    position: absolute;
+}
+
+::ng-deep .matmenu{
+    overflow: hidden !important;
+    background-color: rgba(118, 179, 22, 0.575);
+}
+
+.sem-livros{
+    text-align: center;
+    margin-top: 15%;
 }

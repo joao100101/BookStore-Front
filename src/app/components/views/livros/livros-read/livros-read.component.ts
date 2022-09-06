@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Livro } from '../livro.model';
 import { LivroService } from '../livro.service';
@@ -9,6 +9,8 @@ import { LivroService } from '../livro.service';
 })
 
 export class LivrosReadComponent implements OnInit {
+  menu: boolean = false;
+  carregado: boolean = false;
   ID: String = ''
   url: String = 'https://images-na.ssl-images-amazon.com/images/I/51nNwwVSclL.jpg';
 
@@ -17,18 +19,21 @@ export class LivrosReadComponent implements OnInit {
     this.ID = String(this.routeActive.snapshot.paramMap.get('id'));
   }
   ngOnInit(): void {
-    this.findAll();    
+    this.findAll();
+
   }
 
+  toggleMenu() {
+    this.menu = !this.menu;
+  }
 
 
 
 
   findAll() {
     this.service.findAllByCategory(this.ID).subscribe((resposta) => {
-          this.livros = resposta;
-          console.log("Livros carregados.")
-          console.log(resposta)
+      this.livros = resposta;
+      this.carregado = true;
     })
 
   }
@@ -52,5 +57,18 @@ export class LivrosReadComponent implements OnInit {
     let desc = document.createElement('div');
     desc.classList.add('desc');
     bloco.appendChild(desc);
+  }
+  isCarregadoAndVazio(): boolean {
+    return this.livros.length == 0 && this.carregado;
+  }
+
+
+  getImg(livro: Livro): String{
+    const img = new Image();
+    img.src = String(livro.urlCapa);
+    img.onerror = () => {
+      livro.urlCapa = 'https://img.freepik.com/premium-psd/book-cover-mockup-template_68185-415.jpg?w=2000'
+    }
+    return livro.urlCapa;
   }
 }
