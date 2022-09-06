@@ -58,6 +58,8 @@ export class LivrosReadComponent implements OnInit {
     desc.classList.add('desc');
     bloco.appendChild(desc);
   }
+
+  
   isCarregadoAndVazio(): boolean {
     return this.livros.length == 0 && this.carregado;
   }
