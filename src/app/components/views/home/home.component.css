@@ -16,3 +16,9 @@
         padding: 1rem;
     }
 }
+
+.external-link{
+    font-size: .8rem;
+    color: cornflowerblue;
+    margin-left: .1rem;
+}
