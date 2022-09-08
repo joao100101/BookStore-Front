@@ -1,13 +1,18 @@
 <mat-toolbar class="livros-toolbar">
-    <button mat-icon-button matTooltip="Opções" matTooltipPosition="right" [matMenuTriggerFor]="menu"
-        (click)="toggleMenu()">
+    <button mat-icon-button matTooltip="Opções" matTooltipPosition="right" [matMenuTriggerFor]="menu">
         <mat-icon>menu</mat-icon>
     </button>
     <span>Exibindo livros</span>
     <span class="espacador-toolbar"></span>
-    <button mat-icon-button matTooltip="Pesquisar" matTooltipPosition="below">
+    <div *ngIf="pesquisar" class="form-group">
+        <input type="text" class="barra-pesquisa" id="search-text" aria-describedby="pesquisar-texto" 
+          [(ngModel)]="searchText" placeholder="Digite sua pesquisa" 
+          autofocus>
+      </div>
+    <button mat-icon-button matTooltip="Pesquisar" matTooltipPosition="below" (click)="togglePesquisa()">
         <mat-icon>search</mat-icon>
     </button>
+
     <button mat-icon-button matTooltip="Voltar" matTooltipPosition="below" routerLink="/categorias">
         <mat-icon>navigate_before</mat-icon>
     </button>
@@ -26,7 +31,7 @@
 
 <div class="container" *ngIf="livros.length > 0">
     <ul>
-        <li *ngFor="let book of livros">
+        <li *ngFor="let book of livros | appFilter: searchText">
             <div class="bloco">
                 <div class='principe' style="background-image: url('{{getImg(book)}}');" class="photo"></div>
                 <div class="desc">

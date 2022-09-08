@@ -14,6 +14,9 @@ var ID = '';
 })
 
 export class LivrosReadComponent implements OnInit {
+  searchText: string = '';
+  pesquisar: boolean = false;
+
   menu: boolean = false;
   carregado: boolean = false;
   ID: String = ''
@@ -28,9 +31,12 @@ export class LivrosReadComponent implements OnInit {
 
   }
 
-  toggleMenu() {
-    this.menu = !this.menu;
+
+  togglePesquisa() {
+    this.pesquisar = !this.pesquisar;
+    this.searchText = '';
   }
+
 
 
 
@@ -64,7 +70,7 @@ export class LivrosReadComponent implements OnInit {
     bloco.appendChild(desc);
   }
 
-  
+
   isCarregadoAndVazio(): boolean {
     return this.livros.length == 0 && this.carregado;
   }
@@ -79,12 +85,12 @@ export class LivrosReadComponent implements OnInit {
     return livro.urlCapa;
   }
 
-  delete(id: any){
+  delete(id: any) {
     ID = id;
     this.openDialog('1ms', '1ms');
   }
 
-    //Abre uma caixa de dialogo para confirmar se deseja ou não deletar a categoria
+  //Abre uma caixa de dialogo para confirmar se deseja ou não deletar a categoria
   //O conteudo mostrado na caixa de dialogo é o que está no Componente CategoriaDelete
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
     this.dialog.open(LivroDeleteComponent, {
@@ -126,4 +132,6 @@ export class LivroDeleteComponent implements OnInit {
       }
     })
   }
+
+
 }

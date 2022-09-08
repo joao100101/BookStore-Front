@@ -40,6 +40,7 @@ import { LivrosReadComponent } from './components/views/livros/livros-read/livro
 import { LivroCreateComponent } from './components/views/livros/livro-create/livro-create.component';
 import { LivroUpdateComponent } from './components/views/livros/livro-update/livro-update.component';
 import { LivroLerComponent } from './components/views/livros/livro-ler/livro-ler.component';
+import { FilterPipe } from './filter.pipe';
 
 
 
@@ -57,7 +58,8 @@ import { LivroLerComponent } from './components/views/livros/livro-ler/livro-ler
     LivrosReadComponent,
     LivroCreateComponent,
     LivroUpdateComponent,
-    LivroLerComponent
+    LivroLerComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

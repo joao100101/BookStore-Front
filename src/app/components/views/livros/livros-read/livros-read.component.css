@@ -2,6 +2,13 @@ button {
     border: none;
     margin: .1rem;
 }
+.barra-pesquisa{
+    border-radius: 3rem;
+    width: 10rem;
+    height: 2rem;
+    border: none;
+    padding-left: 1rem;
+}
 
 li {
     list-style: none;
@@ -101,3 +108,5 @@ li {
     text-align: center;
     margin-top: 15%;
 }
+
+
